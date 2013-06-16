@@ -7,16 +7,9 @@ require 'capistrano'
 Capistrano::Configuration.instance(:must_exist).load do
   Dir.glob(File.join(File.dirname(__FILE__), '/capistrano-recipes/*.rb')).sort.each { |f| load f }
 
-  #load "config/recipes/base"
-  #load "config/recipes/rails"
-  #load "config/recipes/nginx"
-  #load "config/recipes/unicorn"
-  #load "config/recipes/mysql"
-  #load "config/recipes/cache"
-
   server "23.21.115.207", :app, :web, :db, :primary => true
-  set :nginx_server_name, ".dreamcodelabs.com dreamcodelabs.raduvlad.com"
-  set :application, "dreamcode"
+  #set :nginx_server_name, ".dreamcodelabs.com dreamcodelabs.raduvlad.com"
+  #set :application, "dreamcode"
 
   set :user, "deployer"
   set :deploy_to, "/home/#{user}/apps/#{application}"
