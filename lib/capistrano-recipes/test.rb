@@ -1,4 +1,4 @@
-Capistrano::Configuration.instance.load do 
+Capistrano::Configuration.instance(:must_exist).load do 
   namespace :radu do
     desc "Awesomeness"
     task :awesomeness do
