@@ -1,3 +1,5 @@
 require "capistrano-recipes/version"
-require "capistrano-recipes/test"
+require 'capistrano'
+
+load "capistrano-recipes/test"
 
