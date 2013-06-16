@@ -1,3 +1,5 @@
+require 'capistrano'
+
 module CapistranoRecipes
   class Test
     TASKS = [
