@@ -7,10 +7,12 @@ module CapistranoRecipes
     ]
 
     def self.load_into(capistrano_config)
-      namespace :radu do
-        desc "Awesomeness"
-        task :awesomeness do
-          puts "yoyo wat up"
+      capistrano_config.load do
+        namespace :radu do
+          desc "Awesomeness"
+          task :awesomeness do
+            puts "yoyo wat up"
+          end
         end
       end
     end
