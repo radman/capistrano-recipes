@@ -18,5 +18,5 @@ module CapistranoRecipes
 end
 
 if Capistrano::Configuration.instance
-  CapistranoUnicorn::Test.load_into(Capistrano::Configuration.instance)
+  CapistranoRecipes::Test.load_into(Capistrano::Configuration.instance)
 end
