@@ -17,7 +17,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   set :use_sudo, false
 
   set :scm, :git
-  set :repository, "git@git.raduvlad.com:radu/#{application}.git"
+  set :repository, "git@git.dreamcodelabs.com:radu/#{application}.git"
   set :branch, "master"
   set :rails_env, "production"
 
