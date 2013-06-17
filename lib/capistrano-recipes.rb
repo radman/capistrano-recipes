@@ -4,7 +4,7 @@ require "capistrano-recipes/version"
 
 require 'capistrano'
 
-Capistrano::Configuration.instance(:must_exist).load do
+Capistrano::Configuration.instance.load do
   Dir.glob(File.join(File.dirname(__FILE__), '/capistrano-recipes/*.rb')).sort.each { |f| load f }
 
   server "23.21.115.207", :app, :web, :db, :primary => true
