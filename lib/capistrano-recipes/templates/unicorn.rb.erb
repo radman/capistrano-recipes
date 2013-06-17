@@ -7,3 +7,4 @@ listen "/tmp/unicorn.<%= application %>.sock"
 worker_processes <%= unicorn_workers %>
 timeout 30
 
+preload_app <%= preload_app.to_s %>
