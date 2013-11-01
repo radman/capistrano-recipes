@@ -24,6 +24,8 @@ Set up your deploy.rb to look something like this:
 
     require 'capistrano-recipes'
 
+You might also have to update your Capfile if you're using the asset pipeline.
+
 You'll need the mysql root password which is under 1password under "bootstrap - mysql"
 
 You'll also need to have the project in version control at git.dreamcodelabs.com
