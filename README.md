@@ -1,29 +1,36 @@
 # Capistrano::Recipes
 
-TODO: Write a gem description
+My deployment recipes.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'capistrano-recipes'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install capistrano-recipes
+    gem 'capistrano-recipes', :github => "radman/capistrano-recipes", :require => false
 
 ## Usage
 
-TODO: Write usage instructions here
+If installing w/o capistrano already present:
 
-## Contributing
+    capify .
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Set up your deploy.rb to look something like this:
+
+    require 'bundler/setup'
+    require 'bundler/capistrano'
+
+    set :nginx_server_name, "b2g.dreamcodelabs.com"
+    set :application, "b2g"
+
+    require 'capistrano-recipes'
+
+You'll need the mysql root password which is under 1password under "bootstrap - mysql"
+
+You'll also need to have the project in version control at git.dreamcodelabs.com
+
+Then run the following commands for your first deployment:
+
+    bundle exec cap deploy setup
+    bundle exec cap deploy:cold
+
+You may also have to set up your database with seed data.
