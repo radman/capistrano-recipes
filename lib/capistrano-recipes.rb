@@ -25,6 +25,7 @@ if Capistrano::Configuration.instance
     default_run_options[:pty] = true # for password prompts
     ssh_options[:forward_agent] = true # forward local ssh keys to server (make sure you've used ssh-add for each key you want to forward)
 
+    set :keep_releases, 2
     after "deploy", "deploy:cleanup" # keep only the last 5 releases
   end
 end
