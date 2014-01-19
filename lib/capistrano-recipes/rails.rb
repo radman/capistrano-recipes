@@ -1,5 +1,5 @@
 namespace :rails do
-  desc "Run a task on a remote server with e.g. 'rails:invoke task=followers:import'"
+  desc "Run a task on a remote server with e.g. rails:invoke task=followers:import"
   task :invoke, :roles => :app do
     run("cd #{deploy_to}/current && #{rake} RAILS_ENV=#{rails_env} #{ENV['task']}")  
   end
