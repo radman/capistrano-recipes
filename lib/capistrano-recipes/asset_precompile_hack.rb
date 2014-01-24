@@ -3,7 +3,9 @@ namespace :deploy do
       task :precompile, :roles => :web, :except => { :no_release => true } do
         
         assets_changed = false
-        if releases.length > 1
+        if releases.length < 1
+          assets_changed = true
+        else
           from = source.next_revision(current_revision)
           assets_changed = capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
         end
