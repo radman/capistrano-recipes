@@ -1,7 +1,7 @@
 namespace :deploy do
   namespace :assets do
     task :precompile, :roles => :web, :except => { :no_release => true } do
-      if releases.length < 1 #<=1
+      if releases.length <= 1
         logger.info "Not skipping asset precompilation because this is the first release."
         do_precompile and return
       else
