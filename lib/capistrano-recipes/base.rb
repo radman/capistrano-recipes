@@ -1,5 +1,8 @@
-def template(from, to)
-  erb = File.read(File.expand_path("../templates/#{from}", __FILE__))
+def template(from, to, templates_dir=nil)
+  templates_dir ||= File.expand_path("../templates", __FILE__)
+  template_file = File.join(templates_dir, from)
+
+  erb = File.read(template_file)
   put ERB.new(erb).result(binding), to
 end
 

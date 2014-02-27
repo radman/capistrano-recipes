@@ -1,5 +1,7 @@
 if exists?(:config_files)
 
+  set_default :config_file_templates_dir, nil
+
   namespace :config do
     config_files.each do |config_file|
       namespace "#{config_file}" do
@@ -7,7 +9,7 @@ if exists?(:config_files)
         desc "Generate #{config_file}.yml"
         task :setup, :roles => :app do
           run "mkdir -p #{shared_path}/config"
-          template "#{config_file}.yml.erb", "#{shared_path}/config/#{config_file}.yml"
+          template "#{config_file}.yml.erb", "#{shared_path}/config/#{config_file}.yml", config_file_templates_dir
         end
         after "deploy:setup", "config:#{config_file}:setup"
 
