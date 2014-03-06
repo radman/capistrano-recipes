@@ -25,6 +25,9 @@ Set up your deploy.rb to look something like this:
     # Config File Setup
     # set :config_files, %w[mail]
     # set :config_file_templates_dir, File.expand_path("../deploy/templates/config", __FILE__)
+    
+    # Override Templates Directory (actually just prepends this dir to template load paths)
+    # set :templates_dir, File.expand_path("../deploy/templates", __FILE__)
 
     require 'capistrano-recipes'
     
