@@ -3,7 +3,7 @@ def template(from, to, custom_templates_dir=nil)
     custom_templates_dir, 
     templates_dir, 
     File.expand_path("../templates", __FILE__)
-  ].compact
+  ].compact.uniq
 
   template_file = nil
   load_paths.each do |load_path|

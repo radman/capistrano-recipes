@@ -7,7 +7,7 @@ require 'capistrano'
 if Capistrano::Configuration.instance
   Capistrano::Configuration.instance.load do
     #set :config_files, %w[radu fog aws] unless exists?(:config_files) # used by config.rb
-    set :templates_dir, File.expand_path("../templates", __FILE__) unless exists?(:templates_dir) # used by base.rb
+    set :templates_dir, File.expand_path("../capistrano-recipes/templates", __FILE__) unless exists?(:templates_dir) # used by base.rb
 
     Dir.glob(File.join(File.dirname(__FILE__), '/capistrano-recipes/*.rb')).sort.each { |f| load f }
 
