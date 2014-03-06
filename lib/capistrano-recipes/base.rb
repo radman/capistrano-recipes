@@ -1,6 +1,17 @@
-def template(from, to, templates_dir=nil)
-  templates_dir ||= File.expand_path("../templates", __FILE__)
-  template_file = File.join(templates_dir, from)
+def template(from, to, custom_templates_dir=nil)
+  load_paths = [
+    custom_templates_dir, 
+    templates_dir, 
+    File.expand_path("../templates", __FILE__)
+  ].compact
+
+  template_file = nil
+  load_paths.each do |load_path|
+    template_file = File.join(load_path, from)
+    break if File.exists?(template_file)
+  end
+
+  raise "Could not load template!" if template_file.nil?
 
   erb = File.read(template_file)
   put ERB.new(erb).result(binding), to
