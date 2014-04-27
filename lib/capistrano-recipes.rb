@@ -21,7 +21,7 @@ if Capistrano::Configuration.instance
     set :use_sudo, false
 
     set :scm, :git
-    set :repository, "git@git.dreamcodelabs.com:radu/#{application}.git"
+    set :repository, "git@git.dreamcode.ca:radu/#{application}.git"
     set :branch, "master"
     set :rails_env, "production"
 
