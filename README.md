@@ -22,8 +22,6 @@ Set up your deploy.rb to look something like this:
     set :nginx_server_name, "b2g.dreamcodelabs.com"
     set :application, "b2g"
     
-    # set :repository, "git@git.dreamcode.ca:radu/#{application}.git"
-    
     # Config File Setup
     # set :config_files, %w[mail]
     # set :config_file_templates_dir, File.expand_path("../deploy/templates/config", __FILE__)
@@ -32,6 +30,8 @@ Set up your deploy.rb to look something like this:
     # set :templates_dir, File.expand_path("../deploy/templates", __FILE__)
 
     require 'capistrano-recipes'
+    
+    # set :repository, "git@git.dreamcode.ca:radu/#{application}.git"
     
 Update Capfile if you're using asset pipeline.
 
